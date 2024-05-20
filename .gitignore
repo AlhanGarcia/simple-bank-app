@@ -1,0 +1,23 @@
+# Binaries
+simple-bank-app
+
+# OS specific files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Logs
+*.log
+
+# Dependencies
+/vendor/
+
+# Environment variable files
+.env
+
+# IDE/editor specific files
+.idea/
+.vscode/
+*.iml
