@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bank App</title>
+  </head>
+  <body>
+    <h1>Bank App</h1>
+    <form id="create-account">
+      <h2>Create Account</h2>
+      <input
+        type="text"
+        id="account-number"
+        placeholder="Account Number"
+        required
+      />
+      <input
+        type="number"
+        id="initial-balance"
+        placeholder="Initial Balance"
+        required
+      />
+      <button type="submit">Create</button>
+    </form>
+    <div id="accounts"></div>
+
+    <script>
+      document
+        .getElementById("create-account")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const accountNumber = document.getElementById("account-number").value;
+          const initialBalance =
+            document.getElementById("initial-balance").value;
+
+          fetch("/accounts", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              account_number: accountNumber,
+              balance: initialBalance,
+            }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+            });
+        });
+    </script>
+  </body>
+</html>

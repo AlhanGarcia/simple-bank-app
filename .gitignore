@@ -21,3 +21,6 @@ simple-bank-app
 .idea/
 .vscode/
 *.iml
+
+# Test database
+test.db
